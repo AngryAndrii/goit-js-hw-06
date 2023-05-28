@@ -12,3 +12,14 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const makeElem = (el) => {
+  const card = `<li><img class="gallery-img" src="${el.url}" alt="${el.alt}"></li>`;
+  return card;
+}
+
+const elements = images.map(makeElem);
+
+document.querySelector(".gallery").insertAdjacentHTML("beforeend", elements);
+
+
