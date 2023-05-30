@@ -4,18 +4,18 @@ let output = document.querySelector("#value");
 const decrementButton = document.querySelector('button[data-action="decrement"]');
 const incrementButton = document.querySelector('button[data-action="increment"]');
 
-const plusFunction = () => {
+const handleMinButtonClick = () => {
     output.innerHTML = counterValue += 1;
 }
 
-const minusFunction = () => {
+const handlePlusButtonClick = () => {
     output.innerHTML = counterValue -= 1;
 }
 
 decrementButton.addEventListener('click', () => {
-    minusFunction();
+    handleMinButtonClick();
 });
 
 incrementButton.addEventListener('click', () => {
-    plusFunction();
+    handlePlusButtonClick();
 });
