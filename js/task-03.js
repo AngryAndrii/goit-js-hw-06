@@ -13,13 +13,28 @@ const images = [
   },
 ];
 
-const makeElem = (el) => {
-  const card = `<li><img class="gallery-img" src="${el.url}" alt="${el.alt}"></li>`;
+const galleryStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  listStyleType: 'none',
+  alignItems: 'center',
+  width: '450px',
+}
+
+const makeElem = ({ url, alt }) => {
+  let card = `<li><img class="gallery-img" src="${url}" alt="${alt}" width="${galleryStyle.width}"></li>`;
   return card;
 }
 
-const elements = images.map(makeElem);
+const markUp = images.map(el => makeElem(el));
+console.log(markUp);
 
-document.querySelector(".gallery").insertAdjacentHTML("beforeend", elements);
+const gallery = document.querySelector(".gallery");
 
+gallery.style.display = galleryStyle.display;
+gallery.style.flexDirection = galleryStyle.flexDirection;
+gallery.style.listStyleType = galleryStyle.listStyleType;
+gallery.style.alignItems = galleryStyle.alignItems;
+gallery.style.listStyleType = galleryStyle.listStyleType;
 
+gallery.insertAdjacentHTML("afterbegin", markUp.join(' '));
